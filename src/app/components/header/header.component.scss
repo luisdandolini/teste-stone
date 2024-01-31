@@ -1,0 +1,27 @@
+header {
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #45505E;
+
+  .container-time {
+    display: flex;
+  }
+
+  .detail {
+    height: 15px;
+    width: 2px;
+    background: #45505E;
+    margin: 0 1rem;
+  }
+
+  .data {
+    font-size: .7rem;
+    font-weight: 500;
+    margin-top: .5rem;
+  }
+}

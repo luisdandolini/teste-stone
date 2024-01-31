@@ -1,0 +1,15 @@
+<header>
+  <img src="../../../assets/Main Logo.png" alt="">
+  <div>
+    <div class="container-time">
+      <p>
+        {{ day | date: 'dd' }} de {{ monthName }} {{ year | date: 'yyyy'}} 
+      </p>
+      <div class="detail"></div>
+      <p>
+        {{ hours | date: 'HH:mm' }} UTC
+      </p>
+    </div>
+    <p class="data">Dados de câmbio disponibilizados pela Morningstar.</p>
+  </div>
+</header>
