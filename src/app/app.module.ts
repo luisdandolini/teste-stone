@@ -9,6 +9,7 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
 
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
+import { DetailComponent } from './components/detail/detail.component';
 registerLocaleData(localePT);
 
 @NgModule({
@@ -16,7 +17,8 @@ registerLocaleData(localePT);
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
