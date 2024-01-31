@@ -12,6 +12,9 @@ import localePT from '@angular/common/locales/pt';
 import { DetailComponent } from './components/detail/detail.component';
 registerLocaleData(localePT);
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,9 @@ registerLocaleData(localePT);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    CurrencyMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-calculator',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent {
+  calculatorForm: FormGroup;
 
+  constructor(private formBuilder: FormBuilder) { 
+    this.calculatorForm = this.formBuilder.group({
+      dolar: [''],
+      rate: ['']
+    });
+  }
 }
