@@ -1,45 +1,91 @@
 <main>
-  <form [formGroup]="calculatorForm">
-    <div class="container-input">      
-      <label for="dolar">Dólar</label>
-      <input 
-        currencyMask 
-        type="text" 
-        id="dolar"
-        formControlName="dolar"
-        [options]="{ prefix: '$ ', thousands: '.', decimal: ',', align: 'left' }"
-      >
-    </div>
-
-    <div class="container-input">
-      <label for="dolar">Taxa do Estado</label>
-      <input 
-        currencyMask
-        type="text" 
-        id="rate"
-        formControlName="rate"
-        [options]="{ prefix: '% ', align: 'left' }"
-      >
-    </div>
-  </form>
-
-  <div class="container-radio">
-    <p>Tipo de compra</p>
-    <div class="container">
-      <div>
-        <input type="radio" name="type">
-        <label for="type">Dinheiro</label>
+  <ng-container *ngIf="step === 1">
+    <form [formGroup]="calculatorForm">
+      <div class="container">
+        <div class="container-input">      
+          <label for="dolar">Dólar</label>
+          <input 
+            currencyMask 
+            type="text" 
+            id="dolar"
+            formControlName="dolar"
+            [options]="{ prefix: '$ ', thousands: '.', decimal: ',', align: 'left' }"
+          >
+          <div
+           *ngIf="calculatorForm.get('dolar')?.errors?.['required'] && calculatorForm.get('dolar')?.touched"
+            class="error"
+           >
+            Valor Obrigatório
+          </div>
+        </div>
+    
+        <div class="container-input">
+          <label for="dolar">Taxa do Estado</label>
+          <input 
+            currencyMask
+            type="text" 
+            id="rate"
+            formControlName="rate"
+            [options]="{ prefix: '% ', align: 'left' }"
+          >
+          <div
+            *ngIf="calculatorForm.get('rate')?.errors?.['required'] && calculatorForm.get('rate')?.touched"
+            class="error"
+          >
+            Valor Obrigatório
+         </div>
+        </div>
       </div>
-
-      <div>
-        <input type="radio" name="type">
-        <label for="type">Cartão</label>
+  
+      <div class="container-radio">
+        <p>Tipo de compra</p>
+        <div class="container">
+          <div>
+            <input 
+              type="radio" 
+              formControlName="paymentType"
+              value="money"
+            >
+            <label for="type">Dinheiro</label>
+          </div>
+    
+          <div>
+            <input 
+              type="radio" 
+              formControlName="paymentType"
+              value="card"
+            >
+            <label for="type">Cartão</label>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </form>
+    <button
+      [disabled]="!calculatorForm.valid"
+      [ngClass]="calculatorForm.valid ? 'active' : 'disabled'"
+      (click)="calculate()"
+    >
+      <img src="../../../assets/Transfer.svg" alt="">
+      Converter
+    </button>
+  </ng-container>
 
-  <button>
-    <img src="../../../assets/Transfer.svg" alt="">
-    Converter
-  </button>
+  <ng-container *ngIf="step === 2">
+    <div class="container-result">
+      <button
+        class="back"
+        (click)="back()"
+      >
+        <img src="../../../assets/arrow-left.png" alt="">
+        Voltar
+      </button>
+  
+      <p class="text">O resultado do cálculo é</p>
+
+      <p class="result-value">{{ this.totalValue | currency: 'BRL' }}</p>
+
+      <p class="detail">Compra no dinheiro e taxa de {{ this.calculatorForm.value.rate }}%</p>
+      <p class="detail">Cotação do dólar: $1,00 = {{ this.dolarValue| currency: 'BRL' }}</p>
+    </div>
+  </ng-container>
 </main>
