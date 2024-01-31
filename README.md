@@ -54,9 +54,8 @@ A aplicação deve mostrar os seguintes dados:
 <br/>
 
 ## Layout
-O layout está disponível no [figma][FIGMA_URL]
 
-[![figma-layout][FIGMA-IMAGE]][FIGMA_URL]
+![Imagem](https://uploaddeimagens.com.br/images/004/728/005/full/Captura_de_tela_2024-01-31_145854.png?1706723957)
 
 
 ## Link Deploy
