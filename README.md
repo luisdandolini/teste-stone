@@ -57,3 +57,8 @@ A aplicação deve mostrar os seguintes dados:
 O layout está disponível no [figma][FIGMA_URL]
 
 [![figma-layout][FIGMA-IMAGE]][FIGMA_URL]
+
+
+## Link Deploy
+
+https://teste-stone.vercel.app/
